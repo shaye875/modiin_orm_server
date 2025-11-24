@@ -13,7 +13,7 @@ def add_agent(name,expertise, unit):
             session.add(agent)
             session.commit()
             session.refresh(agent)
-        print(f"added course with id = {agent.id}")
+            return agent.id
 
 def get_agents_by_id(id):
         with Session(engine) as session:

@@ -14,7 +14,7 @@ def add_terrorist(name, city, wappens):
             session.add(terrorist)
             session.commit()
             session.refresh(terrorist)
-        print(f"added course with id = {terrorist.id}")
+            return terrorist.id
 
 
 def get_terrorist(id = None):

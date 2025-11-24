@@ -23,7 +23,7 @@ def add_report(agent,terrorist,level,report):
         session.add(report)
         session.commit()
         session.refresh(report)
-        print(f"add repore id = {report.id}")
+        return report.id
 
 
 

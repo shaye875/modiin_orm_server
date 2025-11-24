@@ -4,10 +4,9 @@ from tables.ageint import *
 def get_reports_by_id(id = None):
     if id != None:
      with Session(engine) as session:
-        statement = select(Report).where(Report.id == id)
-        result = session.exec(statement)
-        reports = result.all()
-        return reports
+
+        result = session.exec(select(Report).where(Report.id == id)).all()
+        return result
     with Session(engine) as session:
          statement = select(Report)
          result = session.exec(statement)
@@ -48,8 +47,10 @@ def dangerous_terrorist():
         for id in reports:
             if id[1] >= 5:
               list.append(id[0])
+        list1 = []
         for l in list:
-            print(get_terrorist(l))
+            list1.append(get_terrorist(l))
+        return list1
 
 def super_dangerous_terrorist():
         with Session(engine) as session:
@@ -60,7 +61,8 @@ def super_dangerous_terrorist():
             for id in reports:
                 if id[1] >= 10:
                     list.append(id[0])
+        list1 = []
         for l in list:
-            print(get_terrorist(l))
-
+            list1.append(get_terrorist(l))
+        return list1
 
