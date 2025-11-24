@@ -17,11 +17,22 @@ def add_terrorist(name, city, wappens):
         print(f"added course with id = {terrorist.id}")
 
 
-def get_terrorist(id):
-    with Session(engine) as session:
-        stamete = select(Terrorist).where(Terrorist.id == id)
+def get_terrorist(id = None):
+     if id == None:
+      with Session(engine) as session:
+        stamete = select(Terrorist)
         result = session.exec(stamete)
         terrorist = result.all()
         return terrorist
+     with Session(engine) as session:
+          stamete = select(Terrorist).where(Terrorist.id == id)
+          result = session.exec(stamete)
+          terrorist = result.all()
+          return terrorist
 
-
+def name_by_id1(id):
+    with Session(engine) as session:
+        statement = select(Terrorist.name).where(Terrorist.id == id)
+        result = session.exec(statement)
+        terrorist = result.one()
+        return terrorist

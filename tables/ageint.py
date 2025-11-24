@@ -21,3 +21,21 @@ def get_agents_by_id(id):
             result = session.exec(statement)
             agents = result.all()
             return agents
+
+def name_by_id(id):
+    with Session(engine) as session:
+        statement = select(Agent.name).where(Agent.id == id)
+        result = session.exec(statement)
+        agent = result.all()
+        return agent
+
+def true_agent(id,name):
+    with Session(engine) as session:
+        statement = select(Agent)
+        result = session.exec(statement)
+        agents = result.all()
+        for r in agents:
+            if id == r.id:
+                if name == r.name:
+                    return True
+    return False
