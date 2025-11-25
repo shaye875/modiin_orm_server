@@ -3,5 +3,5 @@
   <component name="Black">
     <option name="sdkName" value="Python 3.14 (modiin_orm)" />
   </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.13 (modiin_orm)" project-jdk-type="Python SDK" />
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.14 (modiin_orm_server)" project-jdk-type="Python SDK" />
 </project>

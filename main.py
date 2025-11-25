@@ -72,6 +72,16 @@ def report_add(item:ItemReport):
     id = add_report(item.agent,item.terrorist,item.reliability_level,item.report)
     return {"id":id,"agent":item.agent,"terrorist":item.terrorist,"level":item.reliability_level,"report":item.report}
 
+@app.delete("/delete/{id}")
+def delete_n(id:int):
+    with Session(engine) as session:
+        statement = select(Report).where(Report.id == id)
+        result = session.exec(statement)
+        reports = result.one()
+        session.delete(reports)
+        session.commit()
+        return {"the report delete is wel": True}
+
 
 if __name__ == "__main__":
     uvicorn.run(app,host="localhost",port = 800)

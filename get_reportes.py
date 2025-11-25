@@ -30,6 +30,7 @@ def del_report(id):
         reports = result.one()
         session.delete(reports)
         session.commit()
+        return {"the report delit is wel":True}
 
 def get_by_terrorist(terrorist):
     with Session(engine) as session:
